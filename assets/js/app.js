@@ -37,14 +37,14 @@ function init(){
 
 	// get color depending on population density value
 	function getColor(d) {
-		return d > 1000 ? '#800026' :
-		       d > 500  ? '#BD0026' :
-		       d > 400  ? '#E31A1C' :
-		       d > 300  ? '#FC4E2A' :
-		       d > 200   ? '#FD8D3C' :
-		       d > 150   ? '#FEB24C' :
-		       d > 100   ? '#FED976' :
-		                  '#FFEDA0';
+		return d > 1000 ? '#063801' :
+		       d > 500  ? '#144B0E' :
+		       d > 400  ? '#235F1C' :
+		       d > 300  ? '#31732A' :
+		       d > 200   ? '#408737' :
+		       d > 150   ? '#4F9B45' :
+		       d > 100   ? '#5DAF53' :
+		                  '#7AD76E';
 	}
 
 	function style(feature) {
@@ -97,7 +97,7 @@ function init(){
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
-	map.attributionControl.addAttribution('Population data &copy; <a href="http://census.gov/">US Census Bureau</a>');
+	map.attributionControl.addAttribution('Population data &copy; <a href="http://geospatech.com/">Geospatech NG.</a>');
 
 
 	// Map legend
@@ -117,6 +117,8 @@ function init(){
 		div.innerHTML = labels.join('<br>');
 		return div;
 	};
+
+
 	legend.addTo(map);
 
 
