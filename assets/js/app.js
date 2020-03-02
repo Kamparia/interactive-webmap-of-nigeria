@@ -1,19 +1,25 @@
 window.onload = init;
 
 function init(){
+	// basemap - OSM
 	var osm   = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
 	});
-	var mapbox = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpandmbXliNDBjZWd2M2x6bDk3c2ZtOTkifQ._QA7i5Mpkd_m30IGElHziw', {
+
+	// basemap - Mapbox
+	var mapbox_token = "pk.eyJ1Ijoia2FtcGFyaWEiLCJhIjoiY2s3OHMyaWlhMGk5azNsbnl3MnJweWdjYyJ9.4K1LcrByr-9dxInw2Iy7lw";
+	var mapbox = L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token='+mapbox_token, {
 		maxZoom: 18,
 		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
 			'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
 			'Imagery © <a href="http://mapbox.com">Mapbox</a>',
 		id: 'mapbox.light'
 	});
+
+	// map
 	var map = L.map('map', {
 		center: [8.6518742,9.0918008],
-		zoom: 6,
+		zoom: 7,
 		minZoom: 3,
 		zoomControl: true,
 		attributionControl: true,
@@ -97,7 +103,7 @@ function init(){
 		style: style,
 		onEachFeature: onEachFeature
 	}).addTo(map);
-	map.attributionControl.addAttribution('Population data &copy; <a href="http://geospatech.com/">Geospatech NG.</a>');
+	map.attributionControl.addAttribution('Developed By: <a href="http://somideolaoye.com/" target="_blank">Olaoye Somide.</a>');
 
 
 	// Map legend
@@ -140,5 +146,3 @@ function init(){
 	var slider = new L.Control.opacitySlider().addTo(map);
 	slider.setOpacityLayer(geojson);
 }
-
-
